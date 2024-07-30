@@ -1,6 +1,10 @@
-import { HfInference } from '@huggingface/inference';
-import { HuggingFaceStream, StreamingTextResponse } from 'ai';
-import { experimental_buildOpenAssistantPrompt } from 'ai/prompts';
+import { HfInference } from "@huggingface/inference";
+import { HuggingFaceStream, StreamingTextResponse } from "ai";
+import { experimental_buildOpenAssistantPrompt } from "ai/prompts";
+
+// "OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5",
+const model = "meta-llama/Meta-Llama-3.1-70B";
+const model1 = "OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5";
 
 // Create a new HuggingFace Inference instance
 const Hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
@@ -13,7 +17,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const response = Hf.textGenerationStream({
-    model: 'OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5',
+    model: model1,
     inputs: experimental_buildOpenAssistantPrompt(messages),
     parameters: {
       max_new_tokens: 200,

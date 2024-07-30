@@ -3,16 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3003",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prod": "next build && pm2 restart all"
   },
   "dependencies": {
     "@ai-sdk/react": "latest",
     "@huggingface/inference": "^2.5.1",
-    "next": "latest",
     "ai": "latest",
+    "classnames": "^2.5.1",
+    "next": "latest",
     "react": "^18",
     "react-dom": "^18"
   },
