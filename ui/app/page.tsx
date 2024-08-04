@@ -7,6 +7,9 @@ import classNames from "classnames";
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     api: CHAT_API_ENDPOINT,
+    onError: (error) => {
+      console.error("Error in chat:", error);
+    },
   });
 
   const agent = APP_TITLE.replace(/\s+/g, "");
