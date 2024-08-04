@@ -170,3 +170,4 @@ cython_debug/
 pt/*
 results/*
 llm/*
+logs/*
